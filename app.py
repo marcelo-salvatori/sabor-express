@@ -1,3 +1,13 @@
+"""
+feat: uma nova feature (recurso) que você está adicionando a uma aplicação específica ;
+fix: a resolução de um bug;
+style: recurso e atualizações relacionadas à estilização;
+refactor: refatoração de uma seção específica da base de código;
+test: tudo o que for relacionado a testes;
+docs: tudo o que for relacionado à documentação;
+chore: manutenção regular do código. (Você também pode usar emojis para representar os tipos de commit).
+"""
+
 import os
 
 def cadastrar_restaurante():
@@ -33,14 +43,15 @@ def escolher_opcao():
     opcao_escolhida = int(input('\nEscolha uma opção: '))
     print(f'A opção escolhida foi: {opcao_escolhida}.')
 
-    if opcao_escolhida == 1:
-        cadastrar_restaurante()
-    elif opcao_escolhida == 2:
-        listar_restaurante()
-    elif opcao_escolhida == 3:
-        ativar_restaurante()
-    else:
-        finalizar_app()
+    match opcao_escolhida:
+        case 1:
+            cadastrar_restaurante()
+        case 2:
+            listar_restaurante()
+        case 3:
+            ativar_restaurante()
+        case 4:
+            finalizar_app()
 
 def main():
     exibir_nome_programa()
