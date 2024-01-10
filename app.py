@@ -16,19 +16,22 @@ def menu_principal():
     input('\nAperte enter para voltar ao menu principal')
     main()   
 
-def cadastrar_restaurante():
+def exibir_subtitulo(texto):
     os.system('cls')
-    print('Cadastro de Restaurantes')
+    print(texto)
+    print()
+
+def cadastrar_restaurante():
+    exibir_subtitulo('Cadastro de Restaurantes')
     nome_do_restaurante = input('Digite o nome do restaurante que você deseja cadastrar: ')
 
     restaurantes.append(nome_do_restaurante)
     
-    print(f'O restaurante {nome_do_restaurante} foi cadastrado com sucesso!')
+    print(f'\nO restaurante {nome_do_restaurante} foi cadastrado com sucesso!')
     menu_principal()
 
 def listar_restaurante():
-    os.system('cls')
-    print('Lista de restaurantes cadastradados: ')
+    exibir_subtitulo('Lista de restaurantes cadastradados: ')
 
     for i in restaurantes:
         print(f'- {i}')
@@ -36,8 +39,8 @@ def listar_restaurante():
     menu_principal()
 
 def ativar_restaurante():
-    os.system('cls')
-    print('Ativar restaurantes: ')
+    exibir_subtitulo('Ativar restaurantes: ')
+    
     menu_principal()
 
 def finalizar_app():
