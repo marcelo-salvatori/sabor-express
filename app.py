@@ -11,7 +11,7 @@ print('2. Listar Restaurante')
 print('3. Ativar Restaurante')
 print('4. Sair')
 
-opcao_escolhida = input('\nEscolha uma opção: ')
+opcao_escolhida = int(input('\nEscolha uma opção: '))
 print(f'A opção escolhida foi: {opcao_escolhida}.')
 
 if opcao_escolhida == 1:
