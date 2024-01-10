@@ -10,14 +10,35 @@ chore: manutenção regular do código. (Você também pode usar emojis para rep
 
 import os
 
+restaurantes = []
+
+def menu_principal():
+    input('\nAperte enter para voltar ao menu principal')
+    main()   
+
 def cadastrar_restaurante():
-    print('Cadastrar restaurantes: ')
+    os.system('cls')
+    print('Cadastro de Restaurantes')
+    nome_do_restaurante = input('Digite o nome do restaurante que você deseja cadastrar: ')
+
+    restaurantes.append(nome_do_restaurante)
+    
+    print(f'O restaurante {nome_do_restaurante} foi cadastrado com sucesso!')
+    menu_principal()
 
 def listar_restaurante():
-    print('Listar restaurantes: ')
+    os.system('cls')
+    print('Lista de restaurantes cadastradados: ')
+
+    for i in restaurantes:
+        print(f'- {i}')
+
+    menu_principal()
 
 def ativar_restaurante():
+    os.system('cls')
     print('Ativar restaurantes: ')
+    menu_principal()
 
 def finalizar_app():
     os.system('cls')
@@ -39,21 +60,30 @@ def exibir_opcoes():
     print('3. Ativar Restaurante')
     print('4. Sair')
 
-def escolher_opcao():
-    opcao_escolhida = int(input('\nEscolha uma opção: '))
-    print(f'A opção escolhida foi: {opcao_escolhida}.')
+def opcao_invalida():
+    print('Opção inválida!\n')
+    menu_principal()
 
-    match opcao_escolhida:
-        case 1:
-            cadastrar_restaurante()
-        case 2:
-            listar_restaurante()
-        case 3:
-            ativar_restaurante()
-        case 4:
-            finalizar_app()
+def escolher_opcao():
+    try:
+        opcao_escolhida = int(input('\nEscolha uma opção: '))
+
+        match opcao_escolhida:
+            case 1:
+                cadastrar_restaurante()
+            case 2:
+                listar_restaurante()
+            case 3:
+                ativar_restaurante()
+            case 4:
+                finalizar_app()
+            case _:
+                opcao_invalida()
+    except:
+        opcao_invalida()
 
 def main():
+    os.system('cls')
     exibir_nome_programa()
     exibir_opcoes()
     escolher_opcao()
