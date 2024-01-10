@@ -1,4 +1,21 @@
-print("""
+import os
+
+def cadastrar_restaurante():
+    print('Cadastrar restaurantes: ')
+
+def listar_restaurante():
+    print('Listar restaurantes: ')
+
+def ativar_restaurante():
+    print('Ativar restaurantes: ')
+
+def finalizar_app():
+    os.system('cls')
+    print('Você saiu do programa\n')
+
+def exibir_nome_programa():
+
+    print("""
 ╭━━╮╱╱╭╮╱╱╱╱╱╭━╮╱╱╱╱╱╱╱╭━┳━╮
 ┃━━╋━╮┃╰┳━┳┳╮┃┳╋┳┳━┳┳┳━┫━┫━┫
 ┣━━┃╋╰┫╋┃╋┃╭╯┃┻╋┃┫╋┃╭┫┻╋━┣━┃
@@ -6,23 +23,32 @@ print("""
 ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰╯
 """)
 
-print('1. Cadastrar Restaurante')
-print('2. Listar Restaurante')
-print('3. Ativar Restaurante')
-print('4. Sair')
+def exibir_opcoes():
+    print('1. Cadastrar Restaurante')
+    print('2. Listar Restaurante')
+    print('3. Ativar Restaurante')
+    print('4. Sair')
 
-opcao_escolhida = int(input('\nEscolha uma opção: '))
-print(f'A opção escolhida foi: {opcao_escolhida}.')
+def escolher_opcao():
+    opcao_escolhida = int(input('\nEscolha uma opção: '))
+    print(f'A opção escolhida foi: {opcao_escolhida}.')
 
-if opcao_escolhida == 1:
-    print('Cadastrar restaurantes: ')
-elif opcao_escolhida == 2:
-    print('Listar restaurantes: ')
-elif opcao_escolhida == 3:
-    print('Ativar restaurantes: ')
-else:
-    print('Você saiu do programa')
+    if opcao_escolhida == 1:
+        cadastrar_restaurante()
+    elif opcao_escolhida == 2:
+        listar_restaurante()
+    elif opcao_escolhida == 3:
+        ativar_restaurante()
+    else:
+        finalizar_app()
 
+def main():
+    exibir_nome_programa()
+    exibir_opcoes()
+    escolher_opcao()
+
+if __name__ == '__main__':
+    main()
 
 """
 Beautiful is better than ugly.\
