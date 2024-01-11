@@ -10,7 +10,7 @@ chore: manutenção regular do código. (Você também pode usar emojis para rep
 
 import os
 
-restaurantes = [{'nome':'Japonga', 'categoria':'Japonês', 'ativo':True}]
+restaurantes = [{'nome':'Uramaki', 'categoria':'Japonês', 'ativo':True}]
 
 def menu_principal():
     input('\nAperte enter para voltar ao menu principal')
@@ -18,7 +18,10 @@ def menu_principal():
 
 def exibir_subtitulo(texto):
     os.system('cls')
+    linha = '=' * (len(texto))
+    print(linha)
     print(texto)
+    print(linha)
     print()
 
 def cadastrar_restaurante():
@@ -36,11 +39,18 @@ def cadastrar_restaurante():
 def listar_restaurante():
     exibir_subtitulo('Lista de restaurantes cadastradados: ')
 
+    cabeçalho = f'{'Nome'.ljust(20)}|{'Categoria'.ljust(20)}|Status'
+    separador = '-' * (len(cabeçalho) + 1)
+    print(cabeçalho)
+    print(separador)
+
+
     for restaurante in restaurantes:
         nome_restaurante = restaurante['nome']
         categoria_restaurante = restaurante['categoria']
         restaurante_ativo = 'ativo'if restaurante['ativo'] == True else 'inativo'
-        print(f'- Nome: {nome_restaurante} | Categoria: {categoria_restaurante} | Status: {restaurante_ativo}')
+
+        print(f'{nome_restaurante.ljust(20)}|{categoria_restaurante.ljust(20)}|{restaurante_ativo}')
 
     menu_principal()
 
@@ -79,7 +89,7 @@ def exibir_nome_programa():
 def exibir_opcoes():
     print('1. Cadastrar Restaurante')
     print('2. Listar Restaurante')
-    print('3. Ativar Restaurante')
+    print('3. Alternar status do Restaurante')
     print('4. Sair')
 
 def opcao_invalida():
