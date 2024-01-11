@@ -10,7 +10,7 @@ chore: manutenção regular do código. (Você também pode usar emojis para rep
 
 import os
 
-restaurantes = []
+restaurantes = [{'nome':'Japonga', 'categoria':'Japonês', 'ativo':True}]
 
 def menu_principal():
     input('\nAperte enter para voltar ao menu principal')
@@ -23,23 +23,42 @@ def exibir_subtitulo(texto):
 
 def cadastrar_restaurante():
     exibir_subtitulo('Cadastro de Restaurantes')
-    nome_do_restaurante = input('Digite o nome do restaurante que você deseja cadastrar: ')
+    nome_restaurante = input('Digite o nome do restaurante que você deseja cadastrar: ')
+    categoria_do_restaurante = input('Digite a categoria a qual esse restaurante pertence: ')
 
-    restaurantes.append(nome_do_restaurante)
+    dados_do_restaurante = {'nome':nome_restaurante, 'categoria':categoria_do_restaurante, 'ativo':False}
+
+    restaurantes.append(dados_do_restaurante)
     
-    print(f'\nO restaurante {nome_do_restaurante} foi cadastrado com sucesso!')
+    print(f'\nO restaurante {nome_restaurante} foi cadastrado com a categoria {categoria_do_restaurante}, com o status inativo. Não se esqueça de ativá-lo.')
     menu_principal()
 
 def listar_restaurante():
     exibir_subtitulo('Lista de restaurantes cadastradados: ')
 
-    for i in restaurantes:
-        print(f'- {i}')
+    for restaurante in restaurantes:
+        nome_restaurante = restaurante['nome']
+        categoria_restaurante = restaurante['categoria']
+        restaurante_ativo = 'ativo'if restaurante['ativo'] == True else 'inativo'
+        print(f'- Nome: {nome_restaurante} | Categoria: {categoria_restaurante} | Status: {restaurante_ativo}')
 
     menu_principal()
 
-def ativar_restaurante():
-    exibir_subtitulo('Ativar restaurantes: ')
+def alternar_status_restaurante():
+    exibir_subtitulo('Alternar Status do restaurante')
+
+    nome_restaurante = input('Digite o nome do restaurante que você deseja alternar o status: ')
+    restaurante_encontrado = False
+
+    for restaurante in restaurantes:
+        if nome_restaurante == restaurante['nome']:
+            restaurante_encontrado = True
+            restaurante['ativo'] = not restaurante['ativo']
+            mensagem_status = f'O restaurante {restaurante['nome']} foi ATIVADO com sucesso' if restaurante['ativo'] == True else f'O restaurante {restaurante['nome']} foi DESATIVADO com sucesso'
+            print(mensagem_status)
+
+    if not restaurante_encontrado:
+        print('O Restaurante não foi encontrado')
     
     menu_principal()
 
@@ -77,7 +96,7 @@ def escolher_opcao():
             case 2:
                 listar_restaurante()
             case 3:
-                ativar_restaurante()
+                alternar_status_restaurante()
             case 4:
                 finalizar_app()
             case _:
