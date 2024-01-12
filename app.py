@@ -10,7 +10,7 @@ chore: manutenção regular do código. (Você também pode usar emojis para rep
 
 import os
 
-restaurantes = [{'nome':'Uramaki', 'categoria':'Japonês', 'ativo':True}]
+restaurantes = []
 
 def menu_principal():
     input('\nAperte enter para voltar ao menu principal')
