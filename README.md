@@ -3,7 +3,7 @@
 Sabor Express é um programa em Python criado a partir do curso [Python: crie a sua primeira aplicação](https://cursos.alura.com.br/course/python-crie-sua-primeira-aplicacao) da escola de programação Alura.
 
 ## Conhecimentos aplicados nesse projeto
-Para implementar esse projeto, foi necessário aplicar os seguintes conceito relacionados a linguagem Python:
+Para implementar esse projeto, foi necessário aplicar os seguintes conceitos relacionados a linguagem Python:
 
 - Funções
 - Listas
